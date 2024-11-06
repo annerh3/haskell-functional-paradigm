@@ -71,6 +71,7 @@ cubic :: Double -> Double -> Double -> Double -> (Complex Double, Complex Double
 cubic a b c d = 
     let 
         -- Ajuste de los numeros segun a para tener el formato Original de Vieta
+        -- El ajuste es por si acaso existe un ax^3 donde a != 1 
         b' = b / a
         c' = c / a
         d' = d / a
@@ -111,7 +112,6 @@ cubic a b c d =
                     sgnR = sgn r
                     -- 1 Raiz real y 2 raizes con imaginarios
                     -- la parte real es igual a la primera raiz pero sin la multiplicacion de -2
-                    -- podemos tomar x' igual a la parte real * -2 y listo
                     realPart = sgnR * rootQ * cosh phi - (b' / 3)
                     x'  = -2 * sgnR * rootQ * cosh phi - (b' / 3)
                     -- para estos casos la parte imaginaria una es positiva la otra negativa 
@@ -132,6 +132,7 @@ cubic a b c d =
             
             | q == 0 = 
                 let
+                    -- una raiz real y 2 imaginarias o complejas
                     x' = - (cubicRoot (d' - (b'^3 / 27))) - (b' / 3)
                     realPart = (-b' + x') / 2
                     imagPart = (sqrt (abs ((b' - 3 * x') * (b' + x') - 4 * c')))/2
@@ -139,6 +140,8 @@ cubic a b c d =
 
             | otherwise = 
                 -- Caso cuando s = 0 y una raíz doble
+                -- En este caso se simplifica el calculo ya que la funcion se rexpresa dejando solamente 
+                -- 2 raices en las cuales converge la funcion
                 let
                     
                     x'' = sgn r * sqrt q - (b' / 3)
@@ -147,7 +150,8 @@ cubic a b c d =
 
     in (x1, x2, x3)
 
--- Funcion Signo del Numero 
+-- Funcion Signo del Numero
+-- usando Curring 
 sgn :: Double -> Double
 sgn x
     | x > 0     = 1
@@ -159,5 +163,6 @@ sgn x
 cubicRoot :: Double -> Double
 cubicRoot x = sgn x * (abs x**(1/3))
 
+-- Fyuncion para pasar el resultado a una string y mostrarla
 showRoots :: [Complex Double] -> String
 showRoots roots = unlines $ map (\x -> show x ++ "i") roots

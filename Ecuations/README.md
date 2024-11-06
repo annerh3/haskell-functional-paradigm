@@ -1,4 +1,4 @@
-# Email Spam Classifier
+# Calculadora de Ecuaciones de 1 y segundo Grado
 
 Este proyecto resuelve la ecuacion cuadratica para los numeros reales y ecuaciones cubicas para todas sus raices, reales y complejas por el metodo de VIETA
 
