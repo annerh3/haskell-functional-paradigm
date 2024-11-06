@@ -46,13 +46,3 @@ Este proyecto es una aplicación escrita en Haskell que clasifica correos electr
 ```bash
    cabal run
 ```
-## Estudiantes
-
-- **Hector Vega** 
-  - GitHub: [TETvega](https://github.com/TETvega)
-
-- **Anner Henriquez** 
-  - GitHub: [annerh3](https://github.com/annerh3)
-
-
-
