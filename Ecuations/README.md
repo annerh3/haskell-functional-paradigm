@@ -23,7 +23,7 @@ Este proyecto resuelve la ecuacion cuadratica para los numeros reales y ecuacion
 1. **Clona el repositorio:**: 
 
 ```bash
-   git clone https://github.com/tuusuario/EmailSpamClassifier.git
+   git clone https://github.com/annerh3/haskell-functional-paradigm.git
 ```
 2. **Compila el proyecto:**:  
 
